@@ -1,0 +1,45 @@
+<div>
+  <% if user_signed_in? %>
+  Signed in as <%= current_user.email %>.
+  NOT YOU?<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% else %>
+  <h1>NOT SIGN IN </h1>
+  <br>
+  <%= link_to "Sign in", new_user_session_path %>
+  <% end %>
+</div>
+<% flash.each do |name, msg| %>
+<%= content_tag :div, msg, :id => "flash_#{name}" %>
+<% end %>
+
+<h1>Listing posts</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Summ</th>
+    <th>Creater</th>
+    <th>Content</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @posts.each do |post| %>
+  <tr>
+    <td><%= post.title %></td>
+    
+    <td><%= post.creater %></td>
+    
+    <td><%= link_to 'Show', post %></td>
+    <td><%= link_to 'Edit', edit_post_path(post) %></td>
+    <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+
+
+</table>
+
+<br />
+
+<%= link_to 'New Post', new_post_path %>

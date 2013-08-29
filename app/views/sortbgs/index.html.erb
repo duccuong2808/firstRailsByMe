@@ -1,0 +1,23 @@
+<h1>Listing sortbgs</h1>
+
+<table>
+  <tr>
+    <th>Namesortbg</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sortbgs.each do |sortbg| %>
+  <tr>
+    <td><%= sortbg.namesortbg %></td>
+    <td><%= link_to 'Show', sortbg %></td>
+    <td><%= link_to 'Edit', edit_sortbg_path(sortbg) %></td>
+    <td><%= link_to 'Destroy', sortbg, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sortbg', new_sortbg_path %>

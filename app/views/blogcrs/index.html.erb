@@ -1,0 +1,31 @@
+<h1>Listing blogcrs</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Content</th>
+    <th>Link</th>
+    <th>Creater</th>
+    <th>Tag</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @blogcrs.each do |blogcr| %>
+  <tr>
+    <td><%= blogcr.title %></td>
+    <td><%= blogcr.content %></td>
+    <td><%= blogcr.link %></td>
+    <td><%= blogcr.creater %></td>
+    <td><%= blogcr.tag_list %></td>
+    <td><%= link_to 'Show', blogcr %></td>
+    <td><%= link_to 'Edit', edit_blogcr_path(blogcr) %></td>
+    <td><%= link_to 'Destroy', blogcr, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Blogcr', new_blogcr_path %>

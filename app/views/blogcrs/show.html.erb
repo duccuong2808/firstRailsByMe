@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @blogcr.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @blogcr.content %>
+</p>
+
+<p>
+  <b>Link:</b>
+  <%= @blogcr.link %>
+</p>
+
+<p>
+  <b>Creater:</b>
+  <%= @blogcr.creater %>
+</p>
+</p>
+<td><b>Tags</b>: <%= raw @blogcr.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+<p>
+  <b>Link:</b>
+  <a href=""><%= @blogcr.link %></a>
+</p>
+<p>
+	<% if @blogcr.attach_content_type == "audio/mp3" %>
+	<audio autoplay="autoplay" controls="controls">  
+   		<source src="<%= @blogcr.attach.url %>" /> 
+	</audio> 
+	<% end %>
+	<% if @blogcr.attach_content_type == "video/mp4" %>
+	<video width="320" height="240" controls>
+		<source src="<%= @blogcr.attach.url %>" type="video/mp4">
+  		Your browser does not support the video tag.
+	</video>
+	<% end %>
+	<% if @blogcr.attach_content_type == "application/zip" || @blogcr.attach_content_type == "application/rar" %>
+	Attachment: <a href="<%= @blogcr.attach.url %>"><%= @blogcr.attach_file_name %></a>
+	<% end %>
+	<% if @blogcr.attach_content_type == "image/jpeg" || @blogcr.attach_content_type == "image/png" || @blogcr.attach_content_type == "image/gif" %>
+	<img src="<%= @blogcr.attach.url %>">
+	<% end %>
+</p>
+
+<%= link_to 'Edit', edit_blogcr_path(@blogcr) %> |
+<%= link_to 'Back', blogcrs_path %>

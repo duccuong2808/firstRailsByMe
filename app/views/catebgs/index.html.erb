@@ -1,0 +1,23 @@
+<h1>Listing catebgs</h1>
+
+<table>
+  <tr>
+    <th>Namecatebg</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @catebgs.each do |catebg| %>
+  <tr>
+    <td><%= catebg.namecatebg %></td>
+    <td><%= link_to 'Show', catebg %></td>
+    <td><%= link_to 'Edit', edit_catebg_path(catebg) %></td>
+    <td><%= link_to 'Destroy', catebg, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Catebg', new_catebg_path %>

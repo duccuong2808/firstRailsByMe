@@ -1,0 +1,23 @@
+<div>
+	<% if user_signed_in? %>
+	Signed in as <%= current_user.email %>.
+	NOT YOU?<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+	<% else %>
+	<h1>NOT SIGN IN </h1>
+	<br>
+	<%= link_to "Sign in", new_user_session_path %>
+	<% end %>
+</div>
+<% flash.each do |name, msg| %>
+<%= content_tag :div, msg, :id => "flash_#{name}" %>
+<% end %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Namecate:</b>
+  <%= @category.namecate %>
+
+</p>
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>

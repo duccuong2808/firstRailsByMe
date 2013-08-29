@@ -1,0 +1,21 @@
+<%= form_for(@sortbg) do |f| %>
+  <% if @sortbg.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sortbg.errors.count, "error") %> prohibited this sortbg from being saved:</h2>
+
+      <ul>
+      <% @sortbg.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :namesortbg %><br />
+    <%= f.text_field :namesortbg %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

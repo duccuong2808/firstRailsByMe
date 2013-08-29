@@ -1,0 +1,2 @@
+module CatebgsHelper
+end
